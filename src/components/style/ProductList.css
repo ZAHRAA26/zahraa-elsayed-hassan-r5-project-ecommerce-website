@@ -1,0 +1,163 @@
+.productList {
+    margin-bottom: 136px;
+    padding: 30px 4.5% 0px;
+}
+
+.productListWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* row-gap: 50px; */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(23%, 1fr));
+    /* Automatically adjust number of columns */
+    gap: 2.5%;
+    width: 100%;
+    height: fit-content;
+}
+
+.product-data {
+    margin: 0px 20px 0px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.grid-item p {
+    font-size: 14px;
+    color: #555;
+    /* margin: 10px 0; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.pagination {
+    display: flex;
+    column-gap: 30px;
+    justify-content: center;
+    margin-bottom: 119px;
+}
+
+.pagination button,
+.pagination span {
+    background-color: #F9F1E7;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination span.active {
+    background-color: #B88E2F;
+    color: white;
+    font-weight: bold;
+}
+
+.grid-item {
+    background-color: #f0f0f0;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    /* height: 517px; */
+    /* To position the button inside the grid item */
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.grid-item-img {
+    position: relative;
+}
+
+.grid-item-img img {
+    width: 100%;
+    height: 286px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.grid-item:hover .grid-item-img img {
+    opacity: 0.75;
+    /* Dim the image on hover */
+}
+
+.hover-button {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: white;
+    color: #B88E2F;
+    border: none;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    width: 60%;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    cursor: pointer;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.grid-item:hover .hover-button {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.linkClass {
+    height: 100%;
+}
+
+.img-hover {
+    position: relative;
+    width: 100%;
+    height: 287px;
+    overflow: hidden;
+}
+
+.img-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58, 58, 58, 0.5);
+    /* Silver with 50% transparency */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+    /* Ensure the overlay is on top of the image */
+}
+
+.grid-item:hover .img-hover::before {
+    opacity: 1;
+    /* Show the overlay on hover */
+}
+
+/* Keeping your existing pagination and other styles unchanged */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* Adjust for smaller screens */
+    }
+
+    .productListWrapper {
+        row-gap: 257px;
+    }
+}

@@ -1,0 +1,33 @@
+.breadcrumbs {
+    /* width: 100%; */
+    background-color: #F9F1E7;
+    padding: 32px 60px 32px;
+    display: flex;
+}
+
+.graySpan a {
+    color: #9F9F9F;
+    font-weight: 400;
+    margin: 17px;
+}
+
+
+.neededLessThan {
+    margin-right: 25px;
+}
+
+.lastSpanBreadCrumbs::before {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 29px;
+    background-color: #9F9F9F;
+    margin-right: 16px;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 600px) {
+    .lastSpanBreadCrumbs {
+        text-align: center;
+    }
+}

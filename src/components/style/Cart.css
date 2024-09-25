@@ -1,0 +1,262 @@
+/* General Cart Styles */
+.cart {
+    padding: 67px 7%;
+}
+
+.imgtable {
+    width: 30%
+}
+
+.imgAndTitle {
+    width: 45%;
+}
+
+.imgtable img {
+    width: 100%
+}
+
+.countInCart {
+    /* border: 1px solid #9F9F9F; */
+    padding: 3px 10px;
+    border-radius: 6px
+}
+
+.countInCart span {
+    border: 1px solid #9F9F9F;
+    padding: 3px 10px;
+    border-radius: 6px
+}
+
+.cartWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.checkInCart {
+    width: 47%;
+    height: 58px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.rightCartWrapper {
+    box-sizing: border-box;
+    height: 390px;
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    justify-content: space-between;
+    background-color: #F9F1E7;
+    padding-bottom: 76px;
+}
+
+.tableWrapper {
+    width: 77%
+}
+
+/* Table layout for large screens */
+.cartTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody {
+    text-align: center;
+}
+
+th {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.priceTd {
+    width: 19%;
+    color: #9F9F9F;
+}
+
+.cartTable th,
+.cartTable td {
+    padding: 15px;
+    text-align: center;
+}
+
+.cartTable th {
+    background-color: #f9f1e7;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cartTable td img.removeImage {
+    width: 20px;
+    cursor: pointer;
+}
+
+th {
+    text-align: center;
+}
+
+.productImageTitle {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+    width: 75%;
+    justify-content: space-between;
+}
+.quant{
+    margin-right: 20%;
+}
+.productImageTitle h5 {
+    color: #9F9F9F;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.productImageCartPage {
+    width: 80px;
+    height: 80px;
+}
+
+/* Flex layout for small screens */
+.flexProductCards {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.th {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.priceInCart {
+    color: #9F9F9F;
+    margin-right: 20%;
+}
+
+.separator {
+    width: 100%;
+    background-color: #9F9F9F;
+    border: none;
+}
+
+.cartProductCard {
+    /* border: 1px solid #ddd; */
+    margin: 30px 52px 0 52px
+}
+
+.tableRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.cartProductCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 30px;
+}
+
+.td {
+    text-align: right;
+}
+
+.td img.removeImage {
+    width: 20px;
+    cursor: pointer;
+}
+
+.d-row-total-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 39%;
+}
+
+.d-row-total-cart > span {
+    color: #B88E2F;
+}
+
+.rightCartWrapper h5 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    .cartTable {
+        display: none;
+        /* Hide the table layout on small screens */
+    }
+
+    .flexProductCards {
+        display: flex;
+        /* Show the flex layout on small screens */
+    }
+
+    .rightCartWrapper {
+        width: 100%;
+        margin-top: 20px;
+
+    }
+
+    .rightCartWrapper h1,
+    .rightCartWrapper div {
+        padding-left: 20px;
+    }
+
+    .cartWrapper {
+        flex-direction: column;
+        margin-bottom: 100px;
+    }
+
+    .tableWrapper {
+        width: 100%
+    }
+
+    .d-row-total-cart {
+        width: 84%;
+    }
+
+    .cart {
+        padding: 0px;
+    }
+
+    .checkInCart {
+        width: 100%;
+        height: 58px;
+        padding: 20px 0;
+        margin-top: 30px;
+        border: 1px solid black;
+        border-radius: 20px;
+        background-color: transparent;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    .cartWrapper h1 {
+        margin: 82px 0px;
+        text-align: center;
+    }
+
+    .rightCartWrapper {
+        align-items: flex-start;
+    }
+
+    /* .rightCartWrapper > div {
+        margin-left: 15px;
+    }
+
+    .rightCartWrapper {
+        align-items: flex-start;
+    } */
+}

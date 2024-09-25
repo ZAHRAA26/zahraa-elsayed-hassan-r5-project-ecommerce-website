@@ -1,0 +1,101 @@
+.navbar_wrapper {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo_navbar {
+    display: flex;
+    column-gap: 7px;
+}
+
+.logo_navbar h3 {
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.middle-navbar {
+    display: flex;
+    column-gap: 10%;
+    align-items: center;
+    justify-content: space-between;
+    width: 42%;
+}
+
+.left-middle-navbar {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 47%;
+}
+
+.right-middle-navbar {
+    width: 39%
+}
+
+.shoppingImage {
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(159, 159, 159, 0.7);
+    /* اللون الرمادي مع شفافية */
+    z-index: 100;
+    /* تأكد من أن overlay يظهر فوق كل العناصر الأخرى */
+}
+
+.offcanvas {
+    width: 34%;
+    height: 600px;
+    position: fixed;
+    top: 0;
+    /* لضبطها في منتصف الشاشة عموديًا */
+    /* right: -300px; */
+    display: none;
+    /* إخفاؤها خارج الشاشة */
+    background-color: white;
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); */
+    transition: right 0.3s ease;
+    z-index: 101;
+    /* تأثير عند تغيير قيمة right */
+}
+
+
+.offcanvas.show {
+    right: 0;
+    overflow-x: hidden;
+    display: block;
+    /* إظهار القائمة */
+}
+
+@media only screen and (max-width: 600px) {
+    .middle-navbar {
+        width: 64%;
+    }
+
+    .left-middle-navbar {
+        column-gap: 14%;
+    }
+
+    .offcanvas {
+        width: 80%;
+        /* تغيير العرض للشاشات الأصغر */
+        right: -80%;
+        /* إخفاء القائمة بناءً على العرض النسبي */
+    }
+
+    .offcanvas.show {
+        right: 0;
+        /* إظهارها على الشاشات الصغيرة */
+    }
+}
