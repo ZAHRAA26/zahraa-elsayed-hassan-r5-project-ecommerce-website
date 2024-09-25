@@ -11,7 +11,7 @@ const CartMenu = (props) => {
     <div className='shoppingCartWrapper'>
         <div className='fixedTopSide'>
           <h3>Shopping Cart</h3>
-      <img src='/public/images/bag.png' alt='bag' className='bag-icon' onClick={hideCartMenu}/>
+      <img src='/images/bag.png' alt='bag' className='bag-icon' onClick={hideCartMenu}/>
       <hr className='hrCartTop'/>
         </div>
       <div className='itemsWrapper'>
@@ -30,7 +30,7 @@ const CartMenu = (props) => {
 
                 </div>
               </div>
-              <img className='removeIcon' alt='remove' src='/public/images/close.png' onClick={()=>removeFromCart(item.id)}/>
+              <img className='removeIcon' alt='remove' src='/images/close.png' onClick={()=>removeFromCart(item.id)}/>
             </div>
             
         )})

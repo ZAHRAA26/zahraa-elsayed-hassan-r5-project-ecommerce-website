@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
       <div className="navbar_wrapper">
           <div className="logo_navbar">
-              <img src="/public/images/logo.png" alt='logo' />
+              <img src="/images/logo.png" alt='logo' />
               <h3>Zahra</h3>
       </div>
         <ul className="middle-navbar">
@@ -22,7 +22,7 @@ const Navbar = () => {
 </ul>
       
       <div onClick={toggleCart}>
-        <img className='shoppingImage' src="/public/images/ant-design_shopping-cart-outlined.png" alt='shopping image'/>
+        <img className='shoppingImage' src="/images/ant-design_shopping-cart-outlined.png" alt='shopping image'/>
       </div>
       {isCartOpen && <div className="overlay" onClick={toggleCart}></div>}
       {isCartOpen &&

@@ -6,9 +6,9 @@ const Header = () => {
   const currentUrl=url.slice(1,url.length)
   return (
     <div className="header">
-  <img alt='background' src={url.length == 1 ? '/public/images/scandinavian-interior-mockup-wall-decal-background 1.png' : '/public/images/secondBackground.png'} />
+  <img alt='background' src={url.length == 1 ? '/images/scandinavian-interior-mockup-wall-decal-background 1.png' : '/images/secondBackground.png'} />
       <div className='breadCrumb'>
-       {url.length>1&&currentUrl!=='shop'&& <img src='/public/images/logo.png' alt='logo' className='logoInHeader'/>}
+       {url.length>1&&currentUrl!=='shop'&& <img src='/images/logo.png' alt='logo' className='logoInHeader'/>}
         <h2>{currentUrl}</h2>
         {url.length>1&&<div className='d-row-breadcrumb'>
 <Link to='/'>Home</Link>

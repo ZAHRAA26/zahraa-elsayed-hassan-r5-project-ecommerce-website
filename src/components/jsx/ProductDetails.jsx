@@ -77,9 +77,9 @@ const ProductDetails = () => {
                 <div className='d-row-down-data'>
                   <p className='leftDataPara'>Shop</p>:
                   <div className='d-row-img'>
-                    <img src='/public/images/facebook.png' alt="Facebook" />
-                    <img src='/public/images/linkedIn.png' alt="LinkedIn" />
-                    <img src='/public/images/twitter.png' alt="Twitter" />
+                    <img src='/images/facebook.png' alt="Facebook" />
+                    <img src='/images/linkedIn.png' alt="LinkedIn" />
+                    <img src='/images/twitter.png' alt="Twitter" />
                   </div>
                 </div>
               </div>

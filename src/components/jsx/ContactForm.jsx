@@ -78,14 +78,14 @@ const ContactForm = () => {
         <div className="downContactForm">
           <div className="leftDownContactForm">
             <div className="oneBlockLeftDownContactForm">
-              <img src="/public/images/location.png" alt="Location" />
+              <img src="/images/location.png" alt="Location" />
               <div className="rightOfTheBlock">
                 <h5>Address</h5>
                 <p>236 5th SE Avenue, New York NY10000, United States</p>
               </div>
             </div>
             <div className="oneBlockLeftDownContactForm">
-              <img src="/public/images/bxs_phone.png" alt="Phone" />
+              <img src="/images/bxs_phone.png" alt="Phone" />
               <div className="rightOfTheBlock">
                 <h5>Phone</h5>
                 <p>Mobile: +(84) 546-6789<br />
@@ -93,7 +93,7 @@ const ContactForm = () => {
               </div>
             </div>
             <div className="oneBlockLeftDownContactForm">
-              <img src="/public/images/bi_clock-fill.png" alt="Working Time" />
+              <img src="/images/bi_clock-fill.png" alt="Working Time" />
               <div className="rightOfTheBlock">
                 <h5>Working Time</h5>
                 <p>Monday-Friday: 9:00 - 22:00<br />

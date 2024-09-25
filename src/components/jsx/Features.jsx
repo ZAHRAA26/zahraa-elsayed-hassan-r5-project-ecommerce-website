@@ -1,9 +1,9 @@
 import '../style/Features.css'
 const Features = () => {
-  const features = [{ img: '/public/images/cup.png',title:'High Quality',p:'crafted from top materials' },
-    { img: '/public/images/guarantee.png',title:'warranty Protection' ,p:'Over 2 years'},
-    { img: '/public/images/shipping.png',title:'Free Shipping',p:'Order over 150 $' },
-    { img: '/public/images/support.png',title:'24 / 7 Support',p:'Dedicated support' }]
+  const features = [{ img: '/images/cup.png',title:'High Quality',p:'crafted from top materials' },
+    { img: '/images/guarantee.png',title:'warranty Protection' ,p:'Over 2 years'},
+    { img: '/images/shipping.png',title:'Free Shipping',p:'Order over 150 $' },
+    { img: '/images/support.png',title:'24 / 7 Support',p:'Dedicated support' }]
   return (
     <div className="features">
       {features.map((feature) => {

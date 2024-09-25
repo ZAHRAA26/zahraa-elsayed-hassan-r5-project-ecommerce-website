@@ -53,7 +53,7 @@ const Cart = () => {
                           className="removeImage"
                           alt="remove"
                           onClick={() => removeFromCart(item.id)}
-                          src="/public/images/bascket.png"
+                          src="/images/bascket.png"
                         />
                       </td>
                     </tr>
@@ -92,7 +92,7 @@ const Cart = () => {
                           className="removeImage"
                           alt="remove"
                           onClick={() => removeFromCart(item.id)}
-                          src="/public/images/bascket.png"
+                          src="/images/bascket.png"
                         />
                       </div>
                     </div>
