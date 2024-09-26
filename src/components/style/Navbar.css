@@ -87,6 +87,10 @@ ul {
         column-gap: 14%;
     }
 
+    .navbar_wrapper {
+        padding: 20px 0px;
+    }
+
     .offcanvas {
         width: 80%;
         /* تغيير العرض للشاشات الأصغر */
