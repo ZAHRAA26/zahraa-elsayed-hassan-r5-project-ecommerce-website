@@ -1,15 +1,19 @@
 .navbar_wrapper {
-    /* width: 100%; */
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
+    gap: 16px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .logo_navbar {
     display: flex;
     column-gap: 7px;
+    align-items: center;
 }
 
 .logo_navbar h3 {
@@ -18,28 +22,52 @@
 
 ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .middle-navbar {
     display: flex;
-    column-gap: 10%;
+    gap: 2rem;
     align-items: center;
-    justify-content: space-between;
-    width: 42%;
+    justify-content: center;
+    width: auto;
+    flex-wrap: wrap;
 }
 
 .left-middle-navbar {
     display: flex;
-    justify-content: space-between;
-    column-gap: 47%;
+    gap: 2rem;
+    align-items: center;
 }
 
 .right-middle-navbar {
-    width: 39%
+    width: auto;
 }
 
+.middle-navbar li {
+    margin: 0;
+}
+
+.middle-navbar a {
+    font-weight: 500;
+    color: #111111;
+}
+.right-navbar{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+i{
+    font-size: 24px;
+    color: #111111;
+    cursor: pointer;
+
+}
 .shoppingImage {
     cursor: pointer;
+    width: 30px;
+    height: auto;
 }
 
 .overlay {
@@ -49,57 +77,76 @@ ul {
     width: 100%;
     height: 100%;
     background-color: rgba(159, 159, 159, 0.7);
-    /* اللون الرمادي مع شفافية */
     z-index: 100;
-    /* تأكد من أن overlay يظهر فوق كل العناصر الأخرى */
 }
 
 .offcanvas {
-    width: 34%;
-    height: 600px;
+    width: 360px;
+    max-width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
-    /* لضبطها في منتصف الشاشة عموديًا */
-    /* right: -300px; */
+    right: -360px;
     display: none;
-    /* إخفاؤها خارج الشاشة */
     background-color: white;
-    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); */
     transition: right 0.3s ease;
     z-index: 101;
-    /* تأثير عند تغيير قيمة right */
+    overflow-y: auto;
 }
-
 
 .offcanvas.show {
     right: 0;
-    overflow-x: hidden;
     display: block;
-    /* إظهار القائمة */
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
+    .navbar_wrapper {
+        padding: 20px 24px;
+    }
+
     .middle-navbar {
-        width: 64%;
+        width: 100%;
     }
 
     .left-middle-navbar {
-        column-gap: 14%;
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar_wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 20px;
     }
 
-    .navbar_wrapper {
-        padding: 20px 0px;
+    .middle-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .left-middle-navbar {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .right-middle-navbar {
+        width: 100%;
+    }
+
+    .shoppingImage {
+        align-self: flex-end;
     }
 
     .offcanvas {
-        width: 80%;
-        /* تغيير العرض للشاشات الأصغر */
-        right: -80%;
-        /* إخفاء القائمة بناءً على العرض النسبي */
+        width: 100%;
+        right: -100%;
     }
 
     .offcanvas.show {
         right: 0;
-        /* إظهارها على الشاشات الصغيرة */
     }
 }

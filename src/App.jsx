@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import { ToastContainer } from "react-toastify";
 import Layout from './pages/jsx/Layout'
 import ContactForm from './components/jsx/ContactForm'
 import Cart from './components/jsx/Cart'
@@ -8,6 +9,7 @@ import { useState } from 'react'
 import ProductDetails from './components/jsx/ProductDetails'
 import ProductList from './components/jsx/ProductList'
 import NotFoundPage from './pages/jsx/NotFoundPage'
+import Login from './components/jsx/Login'
 function App() {
   const [shop,setShop]=useState(true)
 const [categoryName,setCategoryName]=useState('')
@@ -15,6 +17,7 @@ const [categoryName,setCategoryName]=useState('')
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />} >
+        <Route path='/login' element={<Login/>} />
           <Route index element={ <Home/>} />
           <Route path='/contact' element={ <ContactForm/>} />
           <Route path='/cart' element={<Cart/> } />
@@ -24,7 +27,7 @@ const [categoryName,setCategoryName]=useState('')
         <Route path="*" element={<NotFoundPage />} />
         {/* ${categoryName}/:id */}
 </Routes>
-
+<ToastContainer position="top-right" autoClose={3000} />
     </BrowserRouter>
   )
 }

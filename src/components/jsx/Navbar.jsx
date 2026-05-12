@@ -21,6 +21,10 @@ const Navbar = () => {
           <li className="right-middle-navbar"><Link to='/contact'>Contact</Link></li>
 </ul>
       
+      <div className="right-navbar" >
+        <Link to='/login'>
+         <i className="fa-regular fa-circle-user"></i>
+        </Link>
       <div onClick={toggleCart}>
         <img className='shoppingImage' src="/images/ant-design_shopping-cart-outlined.png" alt='shopping image'/>
       </div>
@@ -29,6 +33,8 @@ const Navbar = () => {
         <div className={`offcanvas ${isCartOpen ? 'show' : ''}`}>
           <CartMenu toggleCart={toggleCart} />
         </div>}
+      </div>
+        
     </div>
   )
 }
