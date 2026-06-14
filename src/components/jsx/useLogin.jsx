@@ -16,15 +16,14 @@ const useLogin = () => {
     console.log(data);
   };
 
-
-
-   const getClosestDomain = (inputDomain.toLowerCase()) =>
-  COMMON_DOMAINS.find(
-    (domain) =>
-      domain.includes(inputDomain) ||
-      inputDomain.includes(domain.slice(0, 3))
-  );
-   
+  const getClosestDomain = (inputDomain) => {
+    const closestDomain = inputDomain.toLowerCase();
+    return COMMON_DOMAINS.find(
+      (domain) =>
+        domain.includes(closestDomain) ||
+        closestDomain.includes(domain.slice(0, 3))
+    );
+  };
 
   return { register, handleSubmit, errors, onSubmit, getClosestDomain };
 };
