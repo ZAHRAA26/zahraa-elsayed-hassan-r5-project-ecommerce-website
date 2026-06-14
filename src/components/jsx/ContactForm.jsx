@@ -1,157 +1,161 @@
-// ContactForm.jsx
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Header from "./Header";
-import '../style/ContactForm.css';
+import { useState } from 'react';
+import './ContactForm.css'; // Assuming you have a CSS file for styling
 
-const ContactForm = () => {
-  // State to manage form data
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
 
-  // State to manage validation errors
-  const [errors, setErrors] = useState({});
-
-  // Define the Yup validation schema
-  const contactFormSchema = yup.object().shape({
-     name: yup
+// ── VALIDATION SCHEMA ────────────────────────────────────────────────────
+const schema = yup.object({
+  name: yup
     .string()
-    .min(4, 'Name must be at least 4 characters')
-    .matches(/^[A-Za-z\s]+$/, 'Name can only contain letters')
-    .required('Name is required'),
+    .trim()
+    .required('Name is required')
+    .min(2, 'Name must be at least 2 characters')
+    .max(50, 'Name must be less than 50 characters'),
+
   email: yup
     .string()
-    .email('Email must be a valid email address, containing "@" and "."')
-    .matches(/.+@.+\..+/, 'Email must contain "@" and "."')
-    .required('Email is required'),
-  subject: yup.string(), // Subject is optional
+    .trim()
+    .required('Email is required')
+    .email('Please enter a valid email address'),
+
+  phone: yup
+    .string()
+    .trim()
+    .matches(/^[0-9+\s-]{8,15}$/, {
+      message: 'Please enter a valid phone number',
+      excludeEmptyString: true,
+    }),
+
+  subject: yup
+    .string()
+    .required('Please select a subject'),
+
   message: yup
     .string()
-    .min(40, 'Message must be at least 40 characters')
+    .trim()
     .required('Message is required')
+    .min(10, 'Message must be at least 10 characters')
+    .max(500, 'Message must be less than 500 characters'),
+}).required();
+
+// ── COMPONENT ────────────────────────────────────────────────────────────
+export default function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onBlur',
   });
 
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  const onSubmit = async (data) => {
+    // Replace with your real API call / email service
+    await new Promise((res) => setTimeout(res, 1000));
+    console.log('Form data:', data);
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Validate form data against the schema
-      await contactFormSchema.validate(formData, { abortEarly: false });
-      setErrors({}); // Clear previous errors
-
-      // TODO: Handle successful form submission (e.g., send data to backend)
-
-    } catch (validationErrors) {
-      // Extract and map validation errors
-      const formattedErrors = {};
-      validationErrors.inner.forEach((error) => {
-        formattedErrors[error.path] = error.message;
-      });
-      setErrors(formattedErrors);
-    }
+    setSubmitted(true);
+    reset();
+    setTimeout(() => setSubmitted(false), 4000);
   };
 
   return (
-    <>
-      <Header />
-      <div className="contactForm">
-        <div className="upContactForm">
-          <h2>Get In Touch With Us</h2>
-          <p>
-            For More Information About Our Products & Services, Please Feel Free To Drop Us An Email. Our Staff Always
-            Be There To Help You Out. Do Not Hesitate!
+    <section className="contact-section" id="contact">
+      <div className="contact-container">
+        <div className="contact-header">
+          <span className="contact-eyebrow">Get In Touch</span>
+          <h2 className="contact-title">Contact Us</h2>
+          <p className="contact-subtitle">
+            Have a question about an order, a product, or anything else? Send us a message and we'll get back to you.
           </p>
         </div>
-        <div className="downContactForm">
-          <div className="leftDownContactForm">
-            <div className="oneBlockLeftDownContactForm">
-              <img src="/images/location.png" alt="Location" />
-              <div className="rightOfTheBlock">
-                <h5>Address</h5>
-                <p>236 5th SE Avenue, New York NY10000, United States</p>
-              </div>
+
+        <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="name">Full Name</label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                className={errors.name ? 'input-error' : ''}
+                {...register('name')}
+              />
+              {errors.name && <span className="error-msg">{errors.name.message}</span>}
             </div>
-            <div className="oneBlockLeftDownContactForm">
-              <img src="/images/bxs_phone.png" alt="Phone" />
-              <div className="rightOfTheBlock">
-                <h5>Phone</h5>
-                <p>Mobile: +(84) 546-6789<br />
-                   Hotline: +(84) 456-6789</p>
-              </div>
-            </div>
-            <div className="oneBlockLeftDownContactForm">
-              <img src="/images/bi_clock-fill.png" alt="Working Time" />
-              <div className="rightOfTheBlock">
-                <h5>Working Time</h5>
-                <p>Monday-Friday: 9:00 - 22:00<br />
-                   Saturday-Sunday: 9:00 - 21:00</p>
-              </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                className={errors.email ? 'input-error' : ''}
+                {...register('email')}
+              />
+              {errors.email && <span className="error-msg">{errors.email.message}</span>}
             </div>
           </div>
-          <form className="rightDownContactForm" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">Your name</label>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="phone">Phone Number <span className="optional">(optional)</span></label>
               <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Abc"
-                value={formData.name}
-                onChange={handleChange}
+                id="phone"
+                type="tel"
+                placeholder="+20 123 456 7890"
+                className={errors.phone ? 'input-error' : ''}
+                {...register('phone')}
               />
-              {errors.name && <p className="error">{errors.name}</p>}
+              {errors.phone && <span className="error-msg">{errors.phone.message}</span>}
             </div>
-            <div>
-              <label htmlFor="email">Email address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Abc@def.com"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && <p className="error">{errors.email}</p>}
-            </div>
-            <div>
+
+            <div className="form-group">
               <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
+              <select
                 id="subject"
-                name="subject"
-                placeholder="This is an optional"
-                value={formData.subject}
-                onChange={handleChange}
-              />
+                className={errors.subject ? 'input-error' : ''}
+                {...register('subject')}
+                defaultValue=""
+              >
+                <option value="" disabled>Select a subject</option>
+                <option value="order">Order Inquiry</option>
+                <option value="product">Product Question</option>
+                <option value="return">Returns &amp; Refunds</option>
+                <option value="other">Other</option>
+              </select>
+              {errors.subject && <span className="error-msg">{errors.subject.message}</span>}
             </div>
-            <div style={{ height: '148px'}}>
-              <label htmlFor="message">Message</label>
-              <textarea id="message"
-                name="message" placeholder="Hi! I'd like to ask &#10;about"
-                value={formData.message}
-                onChange={handleChange}></textarea>
+          </div>
 
-              {errors.message && <p className="error">{errors.message}</p>}
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Write your message here..."
+              className={errors.message ? 'input-error' : ''}
+              {...register('message')}
+            />
+            {errors.message && <span className="error-msg">{errors.message.message}</span>}
+          </div>
+
+          <button type="submit" className="submit-btn" disabled={isSubmitting}>
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+
+          {submitted && (
+            <div className="success-msg">
+              ✓ Your message has been sent successfully!
             </div>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
+          )}
+        </form>
       </div>
-    </>
+    </section>
   );
-};
-
-export default ContactForm;
+}
